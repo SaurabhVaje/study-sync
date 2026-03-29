@@ -526,6 +526,14 @@ function renderChat() {
       container.appendChild(ds);
     }
 
+    if (msg.system) {
+      const sys = document.createElement('div');
+      sys.className = 'msg-system';
+      sys.textContent = msg.text;
+      container.appendChild(sys);
+      return;
+    }
+
     const isMe = msg.sender === 0;
     const div = document.createElement('div');
     div.className = 'msg ' + (isMe ? 'me' : 'them');
